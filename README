@@ -15,7 +15,7 @@ https://blog.docker.com/2013/07/docker-desktop-your-desktop-over-ssh-running-ins
 
 To use it :
 
-dockerfile -t {your tagname for image} .
+docker build -t {your tagname for image} .
 
 then on the host you need to :
 
