@@ -5,13 +5,13 @@ MAINTAINER Mihai <costache.mircea.mihai@gmail.com>
 
 # Installing required additional software needed for wireshark download
 RUN apt-get update -y && \
-    apt-get install wget bzip2 gcc python perl pkg-config libglib2.0-dev libpcap-dev gtk2.0  -y && \
+    apt-get install wget unzip gcc python perl pkg-config libglib2.0-dev libpcap-dev gtk2.0  -y && \
     rm -rf /var/lib/apt/lists/*
 
 # Download and build latest wireshark
-RUN wget https://1.eu.dl.wireshark.org/src/wireshark-2.2.1.tar.bz2 && \
-    tar -jxf wireshark-2.2.1.tar.bz2 && \
-    /wireshark-2.2.1/configure && make && make install
+RUN wget https://github.com/wireshark/wireshark/archive/master.zip && \
+    unzip master.zip -d master && \
+    master/wireshark-master/configure && make && make install
  
 RUN ldconfig
 
